@@ -1,0 +1,22 @@
+{
+	"A" : 1,
+	"B" : "Hello World !",
+	"C" : [
+		{
+			"D" : 2,
+			"E" : "Disney",
+			"F" : 3
+		},
+		{
+			"D" : "Wrong !",
+			"E" : {
+				"name" : "Bernard"
+			},
+			"F" : 4
+		}
+	],
+	"G" : {
+		"Hello" : "James",
+		"some_key" : 5
+	}
+}

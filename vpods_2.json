@@ -1,0 +1,40 @@
+{
+	"A" : 1,
+	"B" : "Hello World !",
+	"C" : [
+		{
+			"D" : 2,
+			"E" : "Disney",
+			"F" : [
+				{
+					"secret" : "I'm hidden !",
+					"key" : 1
+				},
+				{
+					"secret" : "I'm also hidden",
+					"key" : 2
+				}
+			]
+		},
+		{
+			"D" : "Wrong !",
+			"E" : {
+				"name" : "Bernard"
+			},
+			"F" : [
+				{
+					"secret" : "Hi guy",
+					"key" : 3
+				},
+				{
+					"secret" : "Ohoh",
+					"key" : 4
+				}
+			]
+		}
+	],
+	"G" : {
+		"Hello" : "James",
+		"some_key" : 5
+	}
+}
