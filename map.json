@@ -1,0 +1,18 @@
+{
+	"B" : null,
+	"C" : [
+		{
+			"D" : null,
+			"E" : null,
+			"F" : [
+				{
+					"key" : null
+				}
+			]
+		}
+	],
+	"G" : {
+		"some_key" : null
+	},
+	"Z" : null
+}
