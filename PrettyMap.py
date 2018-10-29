@@ -1,7 +1,7 @@
 import json
 
 def format_text_from_iter(value):
-	if isinstance(value, list) or isinstance(value, dict) or isinstance(value, set):
+	if isinstance(value, (list, dict, set)):# or isinstance(value, dict) or isinstance(value, set):
 		return type(value)
 	return value
 
@@ -13,7 +13,7 @@ def format_basic_value(value):
 
 def decrypt(data, depth=0, max_iter=None):
 	message = ''
-	if isinstance(data, list) or isinstance(data, set):
+	if isinstance(data, (list, set)):# or isinstance(data, set):
 		if depth == 0:
 			#	We only increment the depth when meeting an iterable to display.
 			#	But for the sake of user experience, we want to increment
@@ -27,7 +27,7 @@ def decrypt(data, depth=0, max_iter=None):
 			if max_iter and max_iter <= count:
 				break
 
-			if isinstance(item, list) or isinstance(item, set):
+			if isinstance(item, (list, set)):# or isinstance(item, set):
 				#	The decrypt function in the else statement is not enough to take
 				#	care about the nested lists to display.
 				message += '{}{}:\n'.format(depth * '\t', format_text_from_iter(item))
@@ -38,7 +38,7 @@ def decrypt(data, depth=0, max_iter=None):
 	elif isinstance(data, dict):
 		for key, item in data.items():
 			message += '{}{} : {}\n'.format(depth * '\t', key, format_text_from_iter(item))
-			if isinstance(item, list) or isinstance(item, dict) or isinstance(item, set):
+			if isinstance(item, (list, set, dict)):# or isinstance(item, dict) or isinstance(item, set):
 				message += decrypt(item, depth + 1, max_iter)
 
 	else:
