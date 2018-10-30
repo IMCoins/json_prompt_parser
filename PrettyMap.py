@@ -1,5 +1,14 @@
 import json
 
+def file_writer(func):
+	def wrapper(*args, **kwargs):
+		decrypted_text = func(*args, **kwargs)
+		if kwargs.get('filename'):
+			with open(kwargs['filename'], 'w') as f:
+				f.write(decrypted_text)
+		return decrypted_text
+	return wrapper
+
 def format_text_from_iter(value):
 	if isinstance(value, (list, dict, set)):# or isinstance(value, dict) or isinstance(value, set):
 		return type(value)
@@ -11,7 +20,8 @@ def format_basic_value(value):
 	elif isinstance(value, int) or isinstance(value, float):
 		return "{} ({})".format(value, type(value))
 
-def decrypt(data, depth=0, max_iter=None):
+@file_writer
+def decrypt(data, depth=0, max_iter=None, filename=None):
 	message = ''
 	if isinstance(data, (list, set)):# or isinstance(data, set):
 		if depth == 0:
